@@ -55,10 +55,19 @@ module GrapeDeviseTokenAuth
     end
 
     def unauthorized
-      [401,
-       { 'Content-Type' => 'application/json'
-       },
-       []
+      res = 'hk'.bytes
+
+      [
+        401,
+        {
+          'Content-Type' => 'application/json',
+        },
+        [
+          {
+            success: false,
+            message: 'Unauthorized'
+          }.to_json.to_s
+        ]
       ]
     end
   end

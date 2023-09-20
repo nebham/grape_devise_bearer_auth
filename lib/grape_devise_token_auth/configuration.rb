@@ -1,6 +1,7 @@
 module GrapeDeviseTokenAuth
   class Configuration
     attr_accessor :batch_request_buffer_throttle, :change_headers_on_each_request, :authenticate_all
+    AUTHORIZATION = 'HTTP_AUTHORIZATION'
     ACCESS_TOKEN_KEY = 'HTTP_ACCESS_TOKEN'
     EXPIRY_KEY = 'HTTP_EXPIRY'
     UID_KEY = 'HTTP_UID'

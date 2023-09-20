@@ -12,7 +12,7 @@ module GrapeDeviseTokenAuth
       return nil unless resource_class
 
       # client id is not required
-      client_id = data.client_id || 'default'
+      client_id = data.client_id || 'nebham-client'
 
       resource_from_existing_devise_user
       return resource if correct_resource_type_logged_in? &&

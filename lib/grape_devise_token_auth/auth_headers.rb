@@ -20,13 +20,13 @@ module GrapeDeviseTokenAuth
 
     def batch_request?
       @batch_request ||= resource.tokens[client_id] &&
-                         resource.tokens[client_id]['updated_at'] &&
-                         within_batch_request_window?
+        resource.tokens[client_id]['updated_at'] &&
+        within_batch_request_window?
     end
 
     def within_batch_request_window?
       end_of_window = Time.parse(resource.tokens[client_id]['updated_at']) +
-                      GrapeDeviseTokenAuth.batch_request_buffer_throttle
+        GrapeDeviseTokenAuth.batch_request_buffer_throttle
 
       request_start < end_of_window
     end
