@@ -6,7 +6,7 @@ module GrapeDeviseTokenAuth
       decoded_authorization_token = decode_bearer_token(authorization)
 
       @uid = uid || decoded_authorization_token['uid']
-      @client_id = decoded_authorization_token['client']
+      @client_id = decoded_authorization_token.empty? ? client_id : decoded_authorization_token['client']
       @token = token || decoded_authorization_token['access-token']
       @expiry = expiry || decoded_authorization_token['expiry']
       @warden = warden
